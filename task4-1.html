@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Первое задание
+        function concatStrings(string,separator) {
+            let result = [];
+            let constResult = [];
+            let counter = 0;
+            typeof separator === 'string' ? separator : separator = ''
+            if (typeof string === 'string') {
+                result.push(string)
+            }else if(counter !== 1){
+                counter++;
+                constResult = [...result]
+            } 
+            return function (string2) {
+                if (typeof string2 === 'string') {
+                    result.push(string2)
+                }else if(counter !== 1){
+                    counter++;
+                    constResult = [...result]
+                }   
+                return function (string3) {
+                    if (typeof string3 === 'string') {
+                        result.push(string3)
+                    }else if(counter !== 1){
+                        counter++;
+                        constResult = [...result]
+                    } 
+                    return function (string4) {
+                        if (typeof string =='string' && typeof string2 =='string' && typeof string3 =='string' && typeof string4 =='string') {
+                            result.push(string4)
+                            return result.join(separator)
+                        }
+                        if (typeof string !=='string' || typeof string2 !=='string' || typeof string3 !=='string' || typeof string4 !=='string') {
+                            if(counter !== 1){
+                                counter++;
+                                constResult = [...result]
+                                return constResult.join(separator);
+                            }    
+                        }
+                    } 
+                }
+            }
+        }
+
+        // Второе задание
+        class Calculator{
+            constructor(num1,num2){
+                if (typeof num1 !== 'number'|| isNaN(num1) || !isFinite(num1)  || typeof num2 !== 'number'|| isNaN(num2) || !isFinite(num2)) {
+                    throw new Error('Оба числа должны быть валидными!')
+                }else{
+                    this.num1 = num1
+                    this.num2 = num2
+                }
+            }
+            setX(num){
+                if (typeof num !== 'number'|| isNaN(num) || !isFinite(num)) {
+                    throw new Error('Число должно быть валидным!')
+                }else{
+                    this.num1 = num
+                }
+                
+            }
+            setY(num){
+                if (typeof num !== 'number'|| isNaN(num) || !isFinite(num)) {
+                    throw new Error('Число должно быть валидным!')
+                }else{
+                    this.num2 = num
+                }   
+            }
+            logSum(){
+                console.log(this.num1 + this.num2)
+            }
+            logMul(){
+                console.log(this.num1 * this.num2)
+            }
+            logSub(){
+                console.log(this.num1 - this.num2)
+            }
+            logDiv(){
+                console.log(calculator);
+                if (this.num2 === 0) {
+                    throw new Error('Делитель не может быть = 0!')
+                }else{
+                    console.log(this.num1 / this.num2)
+                }
+            }
+        }
+        const calculator = new Calculator(12, 3);
+       
+        const logCalculatorDiv = calculator.logDiv;
+        logCalculatorDiv(); // 5
+
+    </script>
+</body>
+</html>
