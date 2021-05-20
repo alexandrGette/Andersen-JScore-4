@@ -52,52 +52,53 @@
         }
 
         // Второе задание
-        class Calculator{
-            constructor(num1,num2){
-                if (typeof num1 !== 'number'|| isNaN(num1) || !isFinite(num1)  || typeof num2 !== 'number'|| isNaN(num2) || !isFinite(num2)) {
+        function Calculator(num1,num2) {
+            if (typeof num1 !== 'number'|| isNaN(num1) || !isFinite(num1)  || typeof num2 !== 'number'|| isNaN(num2) || !isFinite(num2)) {
                     throw new Error('Оба числа должны быть валидными!')
-                }else{
-                    this.num1 = num1
-                    this.num2 = num2
-                }
+            }else{
+                let num1;
+                let num2;
             }
-            setX(num){
+            function setX (num){
                 if (typeof num !== 'number'|| isNaN(num) || !isFinite(num)) {
                     throw new Error('Число должно быть валидным!')
                 }else{
-                    this.num1 = num
+                    num1 = num
                 }
-                
             }
-            setY(num){
+            function setY(num){
                 if (typeof num !== 'number'|| isNaN(num) || !isFinite(num)) {
                     throw new Error('Число должно быть валидным!')
                 }else{
-                    this.num2 = num
+                    num2 = num
                 }   
             }
-            logSum(){
-                console.log(this.num1 + this.num2)
+            function logSum(){
+                console.log(num1 + num2)
             }
-            logMul(){
-                console.log(this.num1 * this.num2)
+            function logMul(){
+                console.log(num1 * num2)
             }
-            logSub(){
-                console.log(this.num1 - this.num2)
+            function logSub(){
+                console.log(num1 - num2)
             }
-            logDiv(){
-                console.log(calculator);
+            function logDiv(){
                 if (this.num2 === 0) {
                     throw new Error('Делитель не может быть = 0!')
                 }else{
-                    console.log(this.num1 / this.num2)
+                    console.log(num1 / num2)
                 }
             }
+            return Object.freeze({
+    		    setX,
+                setY,
+                logSum,
+                logMul,
+                logSub,
+                logDiv
+            });
+               
         }
-        const calculator = new Calculator(12, 3);
-       
-        const logCalculatorDiv = calculator.logDiv;
-        logCalculatorDiv(); // 5
 
     </script>
 </body>
